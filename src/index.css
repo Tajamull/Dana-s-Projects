@@ -1,0 +1,13 @@
+/* Boxpad Card Adjustment */
+.inbox-container {
+  /* Div ko boxpad ka half tak rakho as requested */
+  width: 50%; 
+  margin: 0 auto;
+}
+
+/* Glassmorphism custom classes */
+.glass-panel {
+  background: rgba(11, 17, 32, 0.4);
+  backdrop-filter: blur(40px);
+  -webkit-backdrop-filter: blur(40px);
+}

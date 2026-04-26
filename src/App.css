@@ -1,0 +1,137 @@
+
+.loading-wrapper {
+  background-color: #000000;
+  background-image: radial-gradient(circle at 50% 50%, #021434d2 0%, #021434d2 100%);
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  font-family: 'Inter', sans-serif;
+}
+
+.main-card {
+  position: relative;
+  width: 96%;
+  height: 85vh;
+  background: linear-gradient(rgba(10, 10, 177, 0.542),rgba(26, 4, 40, 0.152),rgb(2, 2, 54),rgba(1, 9, 33, 0));
+  border-radius: 40px;
+  border: 4px solid rgba(183, 183, 183, 0.891);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Hexagon Icons Styles */
+.hexagon-container {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  animation: float-alt 6s ease-in-out infinite;
+  z-index: 5;
+}
+
+.hexagon-shape {
+  background: rgba(59, 130, 246, 0.1);
+  border: 1px solid rgba(59, 130, 246, 0.4);
+  clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #60a5fa;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(4px);
+}
+
+.hexagon-shape:hover {
+  background: rgba(59, 130, 246, 0.2);
+  transform: scale(1.1);
+  box-shadow: 0 0 20px rgba(59, 130, 246, 0.3);
+}
+
+/* Central Section */
+.spinner-container {
+  position: relative;
+  width: 300px;
+  height: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.gif-holder {
+  width: 100% ;
+  height: 100%;
+  z-index: 10;
+  border-radius: 50%;
+  overflow: hidden;
+  /* box-shadow: 0 0 40px rgba(37, 99, 235, 0.4); */
+}
+
+.extract-gif {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.outer-orbit {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  /* border: 1px dashed rgba(59, 130, 246, 0.2); */
+  border-radius: 50%;
+  animation: spin 30s linear infinite;
+}
+
+/* Text Styling */
+.text-section {
+  text-align: center;
+  z-index: 10;
+}
+
+.title {
+  color: white;
+  font-size: 2.4rem;
+  font-weight: 700;
+  margin: 0;
+  background: linear-gradient(to right, #fff, #3b82f6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.subtitle {
+  color: #94a3b8;
+  max-width: 450px;
+  margin-top: 15px;
+  font-size: 1.1rem;
+  opacity: 0.8;
+}
+
+/* Bottom Ghost UI */
+.bottom-preview {
+  position: absolute;
+  bottom: 0;
+  width: 70%;
+  height: 120px;
+  background: rgba(30, 41, 59, 0.3);
+  border-radius: 20px 20px 0 0;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-bottom: none;
+  filter: blur(1px);
+  opacity: 0.4;
+}
+
+/* Animations */
+@keyframes float-alt {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-25px); }
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+
