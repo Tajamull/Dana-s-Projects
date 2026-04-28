@@ -5,7 +5,9 @@ A premium, high-end React dashboard featuring **Bento Grid** layouts, **Glassmor
 ## 🚀 Live Demo
 https://my-hiring-proj.netlify.app/
 
-## 📸 Preview
+## 📸 Preview<img width="1798" height="874" alt="screen" src="https://github.com/user-attachments/assets/79b038ee-6019-4b1d-954d-a545895bbf25" />
+<img width="827" height="490" alt="evolve" src="https://github.com/user-attachments/assets/08083e5b-735b-4bdf-af31-deb0644caeb0" />
+
 
 ## ✨ Features
 - **Frontend Architect Identity:** Designed with a focus on visual storytelling.
