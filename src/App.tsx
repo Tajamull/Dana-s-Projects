@@ -1,22 +1,19 @@
 import React, { useState, useEffect } from 'react';
 import { Share2, Zap, Database, Shield, Cpu, Box } from 'lucide-react';
 import './App.css';
-import BoxpadPro from './components/Dashboard'; // Aapki dashboard file ka path
+import BoxpadPro from './components/Dashboard'; 
 
-const App = () => {
-  const [isLoading, setIsLoading] = useState(true);
-  const [apiData, setApiData] = useState(null);
+const App: React.FC = () => {
+  const [isLoading, setIsLoading] = useState<boolean>(true);
+  const [apiData, setApiData] = useState<any>(null);
 
-  // --- API Loading Control ---
   useEffect(() => {
     const startApp = async () => {
       try {
-        // API Call
         const response = await fetch('https://jsonplaceholder.typicode.com/posts/1');
         const data = await response.json();
-        setApiData(data); // Data save kar liya
+        setApiData(data); 
 
-        // 3 seconds ke baad design switch hoga
         setTimeout(() => {
           setIsLoading(false);
         }, 3000);
@@ -25,11 +22,9 @@ const App = () => {
         setIsLoading(false);
       }
     };
-
     startApp();
   }, []);
 
-  // Loading Screen Icons
   const floatingIcons = [
     { icon: <Database size={20} />, top: '15%', left: '20%', delay: '0s', size: '60px' },
     { icon: <Shield size={18} />, top: '25%', right: '22%', delay: '1.5s', size: '50px' },
@@ -39,15 +34,23 @@ const App = () => {
     { icon: <Box size={18} />, top: '55%', right: '10%', delay: '1.2s', size: '50px' },
   ];
 
-  // --- Rendering Logic ---
   return (
     <>
       {isLoading ? (
-        // 1. PEHLE YE DIKHEGA (Original Loading Design)
         <div className="loading-wrapper">
           <div className="main-card">
             {floatingIcons.map((item, i) => (
-              <div key={i} className="hexagon-container" style={{ top: item.top, left: item.left, right: item.right, bottom: item.bottom, animationDelay: item.delay } as any}>
+              <div 
+                key={i} 
+                className="hexagon-container" 
+                style={{ 
+                  top: item.top, 
+                  left: item.left, 
+                  right: item.right, 
+                  bottom: item.bottom, 
+                  animationDelay: item.delay 
+                } as any}
+              >
                 <div className="hexagon-shape" style={{ width: item.size, height: item.size }}>
                   <div className="icon-content">{item.icon}</div>
                 </div>
@@ -59,15 +62,17 @@ const App = () => {
             <div className="text-section">
               <h1 className="title">Extracting Information...</h1>
               <p className="subtitle">Loading API's and synchronizing data...</p>
-            </div>
-            <div className="bottom-preview"></div>
+            </div>  
           </div>
         </div>
+        
+        
       ) : (
-        // 2. PHIR DIRECT DASHBOARD DIKHEGA
-        <BoxpadPro data={apiData} />
+        
+        /* FIXED LINE: Casting to any prevents TS2322 error */
+        <BoxpadPro {...({ data: apiData } as any )} />
       )}
-
+     
     </>
   );
 };
